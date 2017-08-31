@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const jokesModel = require("../models/jokesModel");
+const quotesModel = require("../models/quoteModel");
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -9,14 +9,14 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/enter', (req, res, next) => {
-    res.render('formJoke');
+    res.render('formQuote');
 });
 
 router.post('/', (req, res, next) => {
-    const jokeEnter = req.body.joke;
-    jokesModel.create({ joke: jokeEnter })
-        .then((joke) => {
-            res.render('formJoke', { joke: joke });
+    const quoteEnter = req.body.joke;
+    quotesModel.create({ quote: quoteEnter })
+        .then((quote) => {
+            res.render('formQuote', { quote: quote });
         });
 });
 

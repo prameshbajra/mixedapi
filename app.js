@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const jokes = require('./routes/jokes');
+const quotes = require('./routes/quotes');
 
 const app = express();
 
@@ -14,8 +15,8 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// database thing ...
-mongoose.connect('mongodb://mixedapi:Mzekerom99@ds161493.mlab.com:61493/mixedapi', () => {
+// database thing ... mongodb://mixedapi:Mzekerom99@ds161493.mlab.com:61493/mixedapi
+mongoose.connect('mongodb://localhost/mixedapi', () => {
     console.log("Connected Successfull");
 });
 // uncomment after placing your favicon in /public
@@ -27,7 +28,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/jokes', jokes);
-
+app.use('/quotes', quotes);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     const err = new Error('Not Found');
