@@ -5,7 +5,7 @@ const jokesModel = require("../models/jokesModel");
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-
+    res.send("Yo geda ta vako hoina?");
 });
 
 router.get('/enter', (req, res, next) => {
@@ -27,7 +27,5 @@ router.put('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
 
 });
-
-
 
 module.exports = router;
