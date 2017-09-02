@@ -27,6 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Setting root route ...
+app.get('/', (req, res, next) => {
+    res.render('404');
+});
+
 app.use('/jokes', jokes);
 app.use('/quotes', quotes);
 // catch 404 and forward to error handler
