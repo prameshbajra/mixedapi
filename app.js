@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // database thing ... mongodb://mixedapi:Mzekerom99@ds161493.mlab.com:61493/mixedapi
-mongoose.connect('mongodb://mixedapi:Mzekerom99@ds161493.mlab.com:61493/mixedapi', () => {
+mongoose.connect('mongodb://localhost:27017/mixedapi', () => {
     console.log("Connected Successfull");
 });
 // uncomment after placing your favicon in /public

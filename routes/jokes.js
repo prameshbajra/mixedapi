@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
     jokesModel.count().exec((err, count) => {
         const random = Math.floor(Math.random() * count);
         jokesModel.findOne().skip(random).exec((err, result) => {
-            res.send({ joke: result });
+            res.json({ joke: result });
         });
     });
 });
@@ -31,7 +31,7 @@ router.put('/:id', (req, res, next) => {
         .then(() => {
             jokesModel.findOne({ _id: id })
                 .then((updatedJoke) => {
-                    res.send(updatedJoke);
+                    res.json(updatedJoke);
                 });
         });
 });
@@ -40,7 +40,7 @@ router.delete('/:id', (req, res, next) => {
     const id = req.params.id;
     jokesModel.findByIdAndRemove({ _id: id })
         .then((joke) => {
-            res.send(joke);
+            res.json(joke);
         });
 });
 

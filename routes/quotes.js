@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
     quotesModel.count().exec((err, count) => {
         const random = Math.floor(Math.random() * count);
         quotesModel.findOne().skip(random).exec((err, result) => {
-            res.send({ quote: result });
+            res.json({ quote: result });
         });
     });
 });
@@ -31,7 +31,7 @@ router.put('/:id', (req, res, next) => {
         .then(() => {
             quotesModel.findOne({ _id: id })
                 .then((updatedQuote) => {
-                    res.send(updatedQuote);
+                    res.json(updatedQuote);
                 });
         });
 });
@@ -40,7 +40,7 @@ router.delete('/:id', (req, res, next) => {
     const id = req.params.id;
     quotesModel.findByIdAndRemove({ _id: id })
         .then((quoteDeleted) => {
-            res.send(quoteDeleted);
+            res.json(quoteDeleted);
         });
 });
 
